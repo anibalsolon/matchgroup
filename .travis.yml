@@ -1,0 +1,20 @@
+dist: xenial
+sudo: true
+
+language: python
+python:
+  - 2.7
+  - 3.6
+  - 3.7
+
+before_install:
+  - travis_retry pip install --upgrade pip setuptools wheel
+
+install:
+  - pip install ".[all]"
+
+script:
+  - py.test -vs -n auto --cov matchgroup --cov-config .coveragerc --cov-report xml:cov.xml --doctest-modules matchgroup
+
+after_script:
+- codecov --file cov.xml --flags unittests -e TRAVIS_JOB_NUMBER
