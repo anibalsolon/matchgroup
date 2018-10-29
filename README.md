@@ -40,28 +40,64 @@ participants = pd.DataFrame({
 participants['sex'] = participants['sex'].astype('category')
 participants['group'] = participants['group'].astype('category')
 
-matched_participants = matchgroup.match()
+participants.groupby(['group']).agg(['count'])
+#         age   sex
+#       count count
+# group
+# DX       60    60
+# TC      140   140
+
+# Yikes, so biased
+participants.groupby(['group']).agg(['mean'])
+#              age
+#             mean
+# group
+# DX     39.226727
+# TC     45.080363
+
+# So many males :(
+participants.groupby(['group', 'sex']).agg(['count'])
+#             age
+#           count
+# group sex
+# DX    F      38
+#       M      22
+# TC    F      59
+#       M      81
+
+
+matched_participants = matchgroup.match(participants, 'group')
+
 matched_participants.groupby(['group']).agg(['count'])
->>>         age   sex
->>>       count count
->>> group
->>> DX       60    60
->>> TC       60    60
+#         age   sex
+#       count count
+# group
+# DX       60    60
+# TC       60    60
 
-matched_pheno.groupby(['group']).agg(['mean'])
->>>              age
->>>             mean
->>> group
->>> DX     39.226727
->>> TC     39.754736
+# Even average!
+matched_participants.groupby(['group']).agg(['mean'])
+#              age
+#             mean
+# group
+# DX     39.226727
+# TC     39.754736
 
-matched_pheno.groupby(['group', 'age']).agg(['count'])
->>>             age
->>>           count
->>> group sex
->>> DX    F      38
->>>       M      22
->>> TC    F      38
->>>       M      22
+# Close standard deviation :)
+matched_participants.groupby(['group']).agg(['std'])
+#             age
+#             std
+# group
+# DX     4.542606
+# TC     5.095627
 
+# Matched by sex!
+matched_participants.groupby(['group', 'sex']).agg(['count'])
+#             age
+#           count
+# group sex
+# DX    F      38
+#       M      22
+# TC    F      38
+#       M      22
 ```
