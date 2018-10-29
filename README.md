@@ -2,7 +2,7 @@
 
 Find matched groups on your dataset!
 
-It looks for the smallest group from your dataset, and matches the number of participants based on a Gower dissimilarity matrix from variables of your dataset (e.g. age and sex).
+It looks for the smallest group in your dataset, and matches the number of participants based on a Gower dissimilarity matrix from variables of your dataset (e.g. age and sex).
 
 
 ```python
