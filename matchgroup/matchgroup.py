@@ -47,7 +47,7 @@ def distance_selection(group, group_distance):
     return selections
 
 
-def matchgroup(data, target_variable, comparison_variables=None):
+def match(data, target_variable, comparison_variables=None):
 
     if isinstance(target_variable, pd.Series):
         target_variable = target_variable.name

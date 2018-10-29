@@ -7,7 +7,7 @@ import pytest
 import numpy as np
 import pandas as pd
 
-from ..matchgroup import gower, matchgroup
+from ..matchgroup import gower, match
 
 
 @pytest.fixture
@@ -55,7 +55,7 @@ def test_gower(example_pheno):
 
 
 def test_matchgroup(example_pheno):
-    matched_pheno = matchgroup(example_pheno, 'group', ['age', 'sex'])
+    matched_pheno = match(example_pheno, 'group', ['age', 'sex'])
     count_per_group = matched_pheno.group.value_counts().values
 
     assert len(count_per_group) == 2
