@@ -1,9 +1,12 @@
 # Matchgroup
 
+[![Build Status](https://travis-ci.org/anibalsolon/matchgroup.svg?branch=master)](https://travis-ci.org/anibalsolon/matchgroup)
+[![codecov](https://codecov.io/gh/anibalsolon/matchgroup/branch/master/graph/badge.svg)](https://codecov.io/gh/anibalsolon/matchgroup)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 Find matched groups on your dataset!
 
 It looks for the smallest group in your dataset, and matches the number of participants based on a Gower dissimilarity matrix from variables of your dataset (e.g. age and sex).
-
 
 ```python
 import pandas as pd
