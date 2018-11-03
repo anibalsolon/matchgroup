@@ -1,7 +1,5 @@
 import numpy as np
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 # https://github.com/cran/e1071/blob/master/man/matchControls.Rd
 # https://stat.ethz.ch/education/semesters/ss2012/ams/slides/v4.2.pdf
