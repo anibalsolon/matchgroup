@@ -51,7 +51,8 @@ def match(data, target_variable, comparison_variables=None):
         target_variable = target_variable.name
 
     if comparison_variables is not None:
-        sub_data = data[comparison_variables + [target_variable]].copy()
+        columns = list(set(comparison_variables + [target_variable]))
+        sub_data = data[columns].copy()
     else:
         sub_data = data.copy()
 
