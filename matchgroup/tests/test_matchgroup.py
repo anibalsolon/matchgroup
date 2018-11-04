@@ -60,3 +60,20 @@ def test_matchgroup(example_pheno):
 
     assert len(count_per_group) == 2
     assert np.all(count_per_group == count_per_group[0])
+
+
+def test_matchgroup_nocolsset(example_pheno):
+    example_pheno = example_pheno.drop(columns=['external_id'])
+    matched_pheno = match(example_pheno, 'group')
+    count_per_group = matched_pheno.group.value_counts().values
+
+    assert len(count_per_group) == 2
+    assert np.all(count_per_group == count_per_group[0])
+
+
+def test_matchgroup_nanerror(example_pheno):
+    example_pheno = example_pheno.drop(columns=['external_id'])
+    example_pheno.at[10, 'age'] = None
+
+    with pytest.raises(ValueError):
+        match(example_pheno, example_pheno.group)
