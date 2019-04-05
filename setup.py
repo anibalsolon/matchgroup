@@ -41,7 +41,7 @@ REQUIRES = [
 ]
 
 SETUP_REQUIRES = ['setuptools>=27.0']
-TESTS_REQUIRES = ['pytest-cov', 'codecov', 'pytest-env', 'pytest-xdist']
+TESTS_REQUIRES = ['pytest-cov', 'codecov', 'pytest-env', 'pytest-xdist==1.26.1']
 LINKS_REQUIRES = []
 
 EXTRA_REQUIRES = {
